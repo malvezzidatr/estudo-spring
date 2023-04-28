@@ -1,0 +1,7 @@
+package com.curso.exerciciossb.controllers;
+
+public class PrimeiroController {
+	public String ola() {
+		return "Hello world";
+	}
+}
