@@ -1,0 +1,11 @@
+package com.curso.exerciciossb.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MetodosHttpController {
+	
+	public String get() {
+		return "Requisição get";
+	}
+}
