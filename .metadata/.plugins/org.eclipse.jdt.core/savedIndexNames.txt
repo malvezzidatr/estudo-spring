@@ -20,7 +20,6 @@ INDEX VERSION 1.132+C:\Users\caiom\OneDrive\Desktop\Código\Spring\.metadata\.plu
 3966427126.index
 3028110858.index
 3842415720.index
-4108111080.index
 637337765.index
 2778267213.index
 4109815588.index
