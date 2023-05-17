@@ -1,8 +1,0 @@
-package com.curso.exerciciossb.controllers;
-
-public class ClienteController {
-	
-	public Cliente obterCliente() {
-		return new Cliente(28, "Caio", "49094075881");
-	}
-}
