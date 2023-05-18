@@ -14,10 +14,34 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private Double price;
+    private Double discont;
 
-    public Produto(String name) {
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Double getDiscont() {
+        return discont;
+    }
+
+    public void setDiscont(Double discont) {
+        this.discont = discont;
+    }
+
+    public Double getPriceWithDiscont() {
+        return this.price - ((this.discont/100) * this.price);
+    }
+
+    public Produto(String name, Double price, Double discont) {
         super();
         this.name = name;
+        this.price = price;
+        this.discont = discont;
     }
 
     public int getId() {
