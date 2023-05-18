@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.exerciciossb.models.entities.Produto;
@@ -18,8 +17,7 @@ public class ProdutoController {
     private ProdutoRepository produtoRepository;
 
     @PostMapping
-    public ResponseEntity<Produto> novoProduto(@RequestParam String name, Double price, Double discont) {
-        Produto produto = new Produto(name, price, discont);
+    public ResponseEntity<Produto> novoProduto(Produto produto) {
         produtoRepository.save(produto);
         return ResponseEntity.status(201).body(produto);
     }
