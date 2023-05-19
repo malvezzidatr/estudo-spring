@@ -47,13 +47,6 @@ public class Produto {
         return this.price - ((this.discont/100) * this.price);
     }
 
-    public Produto(String name, Double price, Double discont) {
-        super();
-        this.name = name;
-        this.price = price;
-        this.discont = discont;
-    }
-
     public int getId() {
         return id;
     }
