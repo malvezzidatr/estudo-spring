@@ -3,6 +3,8 @@ package com.curso.exerciciossb.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,5 +44,12 @@ public class ProdutoController {
     @DeleteMapping(path = "/{id}")
     public void excluirProduto(@PathVariable int id) {
         produtoRepository.deleteById(id);
+    }
+
+    @GetMapping(path = "/pagina/{numeroPagina}/{qtdePagina}")
+    public ResponseEntity<Iterable<Produto>> obterProdutoPorPagina(@PathVariable int numeroPagina, @PathVariable int qtdePagina) {
+        if (qtdePagina > 5) qtdePagina = 5;
+        Pageable page = PageRequest.of(numeroPagina, qtdePagina);
+        return ResponseEntity.status(200).body(produtoRepository.findAll(page));
     }
 }
