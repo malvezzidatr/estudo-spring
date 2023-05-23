@@ -4,4 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.curso.exerciciossb.models.entities.Produto;
 
-public interface ProdutoRepository extends JpaRepository<Produto, Integer> {}
+public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
+    public Iterable<Produto> findByNameContainingIgnoreCase(String name);
+}

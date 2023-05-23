@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curso.exerciciossb.models.entities.Produto;
@@ -51,5 +52,10 @@ public class ProdutoController {
         if (qtdePagina > 5) qtdePagina = 5;
         Pageable page = PageRequest.of(numeroPagina, qtdePagina);
         return ResponseEntity.status(200).body(produtoRepository.findAll(page));
+    }
+
+    @GetMapping(path = "/nome")
+    public ResponseEntity<Iterable<Produto>> listarProdutosPorNome(@RequestParam String name) {
+        return ResponseEntity.status(200).body(produtoRepository.findByNameContainingIgnoreCase(name)); 
     }
 }
