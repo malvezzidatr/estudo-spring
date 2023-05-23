@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,5 +37,10 @@ public class ProdutoController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<Optional<Produto>> listarProdutoPorId(@PathVariable int id) {
         return ResponseEntity.status(200).body(produtoRepository.findById(id)); 
+    }
+    
+    @DeleteMapping(path = "/{id}")
+    public void excluirProduto(@PathVariable int id) {
+        produtoRepository.deleteById(id);
     }
 }
